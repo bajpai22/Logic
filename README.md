@@ -2,98 +2,105 @@
 
 An ML-powered web app that scores how well your resume matches a job description — and tells you exactly what keywords to add to improve your chances.
 
-**Live demo → [your-app.onrender.com](https://your-app.onrender.com)**
+**GitHub Repo → https://github.com/bajpai22/Logic**
 
 ---
 
-## What it does
+## 🚀 What it does
 
-- Computes a **match score (0–100%)** using TF-IDF vectorisation + cosine similarity
-- Shows which **keywords you already have** from the job description
-- Highlights **missing keywords** you should add to your resume
-- Gives **actionable improvement tips** based on your score
-- Lets you **download a full match report** as a text file
-
----
-
-## Tech stack
-
-| Layer | Tech |
-|---|---|
-| Language | Python 3.11+ |
-| ML | Scikit-learn (TF-IDF, cosine similarity) |
-| Data | Pandas |
-| UI | Streamlit |
-| Deployment | Render |
-| Version control | Git + GitHub |
+* Computes a **match score (0–100%)** using TF-IDF vectorisation + cosine similarity
+* Shows which **keywords already exist** in the resume
+* Highlights **missing keywords** to improve ATS compatibility
+* Gives **actionable improvement tips**
+* Lets users **download a full match report**
 
 ---
 
-## How the ML works
+## 🛠 Tech Stack
 
-1. Both texts (resume + JD) are cleaned and lowercased
-2. A `TfidfVectorizer` converts them into numerical vectors
-3. `cosine_similarity` measures the angle between those vectors
-4. Score of 1.0 = perfect match, 0.0 = no overlap
-5. Missing keywords are extracted by comparing word sets after filtering stopwords
+| Layer           | Tech         |
+| --------------- | ------------ |
+| Language        | Python 3.12  |
+| ML              | Scikit-learn |
+| Data Processing | Pandas       |
+| UI              | Streamlit    |
+| Deployment      | Render       |
+| Version Control | Git + GitHub |
 
 ---
 
-## Run locally
+## 🧠 How the ML Works
+
+1. Resume and Job Description text are cleaned and normalized
+2. TF-IDF vectorization converts text into numerical vectors
+3. Cosine similarity calculates semantic overlap
+4. Match score is generated between 0–100%
+5. Missing keywords are extracted after stopword filtering
+
+---
+
+## ▶️ Run Locally
 
 ```bash
-# Clone the repo
-git clone https://github.com/yourusername/resume-match-scorer.git
-cd resume-match-scorer
+# Clone the repository
+git clone https://github.com/bajpai22/Logic.git
+
+# Open project
+cd Logic
 
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+
+# Activate environment
+# Windows
+venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the app
+# Run Streamlit app
 streamlit run app.py
 ```
 
-Open [http://localhost:8501](http://localhost:8501) in your browser.
+Open:
+
+```bash
+http://localhost:8501
+```
 
 ---
 
-## Deploy on Render
+## 🌐 Deployment
 
-1. Push this repo to GitHub
-2. Go to [render.com](https://render.com) → New Web Service
-3. Connect your GitHub repo
-4. Set the start command:
+Deployed using Render.
 
-```
+Start command:
+
+```bash
 streamlit run app.py --server.port $PORT --server.address 0.0.0.0
 ```
 
-5. Done — Render will build and deploy automatically.
-
 ---
 
-## Project structure
+## 📁 Project Structure
 
-```
+```bash
 resume-match-scorer/
-├── app.py              # Streamlit UI
-├── scorer.py           # ML scoring logic
-├── requirements.txt    # Dependencies
+├── app.py
+├── scorer.py
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Author
+## 👨‍💻 Author
 
-Built by [Your Name](https://linkedin.com/in/yourprofile) · CSE Graduate · Python & ML enthusiast
+Built by Aryan Bajpai
+Python Developer • ML Enthusiast • CSE Student
+
+GitHub:
+https://github.com/bajpai22
 
 ---
 
-## License
-
-MIT
